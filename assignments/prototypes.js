@@ -143,5 +143,59 @@ Humanoid.prototype.greet = function() {
 
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
+  function Villain(obj) {
+    Humanoid.call(this, obj);
+  }
+
+  Villain.prototype = Object.create(Humanoid.prototype);
+
+
+  function Hero(obj) {
+    Humanoid.call(this, obj);
+  }
+
+  Hero.prototype = Object.create(Humanoid.prototype);
+
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
+  Villain.prototype.attack = function() {
+    return `${this.name} attacks the hero!`;
+  } 
+
+  Hero.prototype.attack = function() {
+    return `${this.name} attacks the villain!`;
+  } 
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
+  const thanos = new Villain ({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 5,
+      height: 20,
+    },
+    healthPoints: 100,
+    name: 'Thanos',
+    team: 'Mage Guild',
+    weapons: [
+      'Infinity Gauntlet',
+    ],
+    language: 'all languages',
+  });
+
+  const ironMan = new Hero({
+    createdAt: new Date(),
+    dimensions: {
+      length: 1,
+      width: 2,
+      height: 6,
+    },
+    healthPoints: 20,
+    name: 'Thanos',
+    team: 'Mage Guild',
+    weapons: [
+      'Iron Man Suit',
+      'Wit',
+      'Smarts',
+      'Money'
+    ],
+    language: 'English',
+  });
