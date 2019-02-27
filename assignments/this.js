@@ -33,7 +33,7 @@ const me = {
     firstName: 'Mckay',
     lastName: 'Wrigley',
     age: 21,
-    yearsTo100: () => {
+    yearsTo100: function() {
         let yearsTo100 = 100 - this.age;
         console.log(`${this.firstName} ${this.lastName} has ${yearsTo100} years left until turning 100.`);
     }
